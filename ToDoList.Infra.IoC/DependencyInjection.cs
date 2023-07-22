@@ -11,7 +11,7 @@ namespace ToDoList.Infra.IoC
         {
             services.AddDbContext<ToDoDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                b => b.MigrationsAssembly("ToDoList.Api")));
+                b => b.MigrationsAssembly("ToDoList.API")));
 
             return services;
         }
