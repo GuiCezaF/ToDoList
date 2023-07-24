@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ToDoList.Domain.Entities;
 
 namespace ToDoList.Infra.Data.context
 {
@@ -8,6 +9,8 @@ namespace ToDoList.Infra.Data.context
             : base(options)
         {
         }
+
+        public DbSet<ToDo> ToDos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
