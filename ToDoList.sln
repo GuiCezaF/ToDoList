@@ -7,15 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3B95D9C-0F6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BC99E3B0-F9D5-469A-A6BA-55F80B0CD0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.API", "ToDoList.API\ToDoList.API.csproj", "{5F3634EB-4DE0-4698-976F-50BEB3921051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.API", "ToDoList.API\ToDoList.API.csproj", "{5F3634EB-4DE0-4698-976F-50BEB3921051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Domain", "ToDoList.Domain\ToDoList.Domain.csproj", "{95954CD8-FF04-4FF3-853E-7A545AFA56DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Domain", "ToDoList.Domain\ToDoList.Domain.csproj", "{95954CD8-FF04-4FF3-853E-7A545AFA56DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Application", "ToDoList.Application\ToDoList.Application.csproj", "{8971F3A8-BCDD-4171-A73D-A0B6C3EEA300}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Application", "ToDoList.Application\ToDoList.Application.csproj", "{8971F3A8-BCDD-4171-A73D-A0B6C3EEA300}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Infra.Data", "ToDoList.Infra.Data\ToDoList.Infra.Data.csproj", "{296D8FC3-B248-4212-9459-412D332FC1FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Infra.Data", "ToDoList.Infra.Data\ToDoList.Infra.Data.csproj", "{296D8FC3-B248-4212-9459-412D332FC1FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Infra.IoC", "ToDoList.Infra.IoC\ToDoList.Infra.IoC.csproj", "{21BA544B-6306-44A5-BBF4-2A5580809871}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Infra.IoC", "ToDoList.Infra.IoC\ToDoList.Infra.IoC.csproj", "{21BA544B-6306-44A5-BBF4-2A5580809871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Test", "ToDoList.Test\ToDoList.Test.csproj", "{E5FF7C56-7748-4649-B0E4-A9544BD88461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{21BA544B-6306-44A5-BBF4-2A5580809871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21BA544B-6306-44A5-BBF4-2A5580809871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21BA544B-6306-44A5-BBF4-2A5580809871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5FF7C56-7748-4649-B0E4-A9544BD88461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5FF7C56-7748-4649-B0E4-A9544BD88461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5FF7C56-7748-4649-B0E4-A9544BD88461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5FF7C56-7748-4649-B0E4-A9544BD88461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{8971F3A8-BCDD-4171-A73D-A0B6C3EEA300} = {E3B95D9C-0F68-49C0-8C43-36A3DBFD8DDD}
 		{296D8FC3-B248-4212-9459-412D332FC1FA} = {E3B95D9C-0F68-49C0-8C43-36A3DBFD8DDD}
 		{21BA544B-6306-44A5-BBF4-2A5580809871} = {E3B95D9C-0F68-49C0-8C43-36A3DBFD8DDD}
+		{E5FF7C56-7748-4649-B0E4-A9544BD88461} = {BC99E3B0-F9D5-469A-A6BA-55F80B0CD0B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {782E34E9-8B9F-4946-B774-C0DE0AB2ED4E}

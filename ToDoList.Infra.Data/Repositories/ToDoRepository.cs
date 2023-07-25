@@ -9,6 +9,11 @@ namespace ToDoList.Infra.Data.Repositories
     {
         private readonly ToDoDbContext _db;
 
+        public ToDoRepository(ToDoDbContext db)
+        {
+            _db = db;
+        }
+
         public async Task<ToDo> CreateAsync(ToDo toDo)
         {
             _db.Add(toDo);
@@ -18,12 +23,12 @@ namespace ToDoList.Infra.Data.Repositories
 
         public async Task<ICollection<ToDo>> GetToDosAsync()
         {
-            return await _db.ToDos.ToListAsync();
+            return await _db.ToDo.ToListAsync();
         }
 
         public async Task<ToDo> GetByIdAsync(int id)
         {
-            var toDoById = await _db.ToDos.FirstOrDefaultAsync(x => x.Id == id);
+            var toDoById = await _db.ToDo.FirstOrDefaultAsync(x => x.Id == id);
             return toDoById;
         }
 

@@ -21,16 +21,20 @@ namespace ToDoList.Application.Services
         public async Task<ResultService<ToDoDTO>> CreateAsync(ToDoDTO toDoDTO)
         {
             if (toDoDTO == null)
+            {
                 return ResultService.Fail<ToDoDTO>("Objeto deve ser informado");
+            }
 
             var result = new ToDoDTOValidator().Validate(toDoDTO);
             if (!result.IsValid)
+            {
                 return ResultService.RequestError<ToDoDTO>("Problemas de validação", result);
+            }
 
             var toDo = _mapper.Map<ToDo>(toDoDTO);
             var data = await _toDoRepository.CreateAsync(toDo);
 
-            return ResultService.Ok<ToDoDTO>(_mapper.Map<ToDoDTO>(data));
+            return ResultService.Ok(_mapper.Map<ToDoDTO>(data));
         }
 
         public async Task<ResultService<ICollection<ToDoDTO>>> GetAllAsync()

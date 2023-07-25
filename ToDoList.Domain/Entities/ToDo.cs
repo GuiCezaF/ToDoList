@@ -4,10 +4,10 @@ namespace ToDoList.Domain.Entities
 {
     public class ToDo
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool Finished { get; set; } = false;
+        public int Id { get; private set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public bool Finished { get; private set; }
 
         public ToDo(string name, string description)
         {

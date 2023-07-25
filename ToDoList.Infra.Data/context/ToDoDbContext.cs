@@ -10,7 +10,7 @@ namespace ToDoList.Infra.Data.context
         {
         }
 
-        public DbSet<ToDo> ToDos { get; set; }
+        public DbSet<ToDo> ToDo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
