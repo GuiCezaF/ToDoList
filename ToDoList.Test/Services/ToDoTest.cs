@@ -1,0 +1,36 @@
+﻿using AutoMapper;
+using Moq;
+using ToDoList.Application.DTOS;
+using ToDoList.Application.Services;
+using ToDoList.Domain.Repositories.Interfaces;
+
+namespace ToDoList.Test.Services
+{
+    public class ToDoTest
+    {
+        private ToDoService _toDoService;
+        private IMapper _mapper;
+        private Mock<IToDoRepository> _toDoRepository;
+
+        public ToDoTest()
+        {
+            _toDoService = new ToDoService(new Mock<IToDoRepository>().Object,
+                new Mock<IMapper>().Object);
+        }
+
+        [Fact]
+        public async void CreateToDo()
+        {
+            ToDoDTO toDoDto = new ToDoDTO
+            {
+                Id = 1,
+                Name = "test",
+                Description = "test",
+                Finished = false
+            };
+            var data = await _toDoService.CreateAsync(toDoDto);
+
+            Assert.Equal(true, data.IsSuccess);
+        }
+    }
+}
