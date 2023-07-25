@@ -5,5 +5,6 @@ namespace ToDoList.Application.Services.Interfaces
     public interface IToDoService
     {
         Task<ResultService<ToDoDTO>> CreateAsync(ToDoDTO toDoDTO);
+        Task<ResultService<ICollection<ToDoDTO>>> GetAllAsync();
     }
 }

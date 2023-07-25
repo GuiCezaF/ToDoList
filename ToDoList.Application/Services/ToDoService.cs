@@ -32,5 +32,11 @@ namespace ToDoList.Application.Services
 
             return ResultService.Ok<ToDoDTO>(_mapper.Map<ToDoDTO>(data));
         }
+
+        public async Task<ResultService<ICollection<ToDoDTO>>> GetAllAsync()
+        {
+            var toDos = await _toDoRepository.GetToDosAsync();
+            return ResultService.Ok(_mapper.Map<ICollection<ToDoDTO>>(toDos));
+        }
     }
 }
