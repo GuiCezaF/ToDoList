@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ToDoList.Application.DTOS;
-using ToDoList.Application.Services.Interfaces; 
+using ToDoList.Application.Services.Interfaces;
 
 namespace ToDoList.API.Controllers
 {
@@ -35,6 +35,41 @@ namespace ToDoList.API.Controllers
                 return Ok(result);
             }
 
+            return BadRequest(result);
+        }
+
+        [HttpGet]
+        [Route("id")]
+        public async Task<ActionResult> GetByIdAsync(int id)
+        {
+            var result = await _toDoService.GetByIdAsync(id);
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpDelete]
+        [Route("id")]
+        public async Task<ActionResult> DeleteAsync(int id)
+        {
+            var result = await _toDoService.DeleteAsync(id);
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateAsync([FromBody] ToDoDTO toDoDTO)
+        {
+            var result = await _toDoService.UpdateAsync(toDoDTO);
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
             return BadRequest(result);
         }
     }
