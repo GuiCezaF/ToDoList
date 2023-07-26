@@ -3,6 +3,7 @@ using Moq;
 using ToDoList.Application.DTOS;
 using ToDoList.Application.Services;
 using ToDoList.Domain.Repositories.Interfaces;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ToDoList.Test.Services
 {
@@ -31,6 +32,14 @@ namespace ToDoList.Test.Services
             var data = await _toDoService.CreateAsync(toDoDto);
 
             Assert.Equal(true, data.IsSuccess);
+        }
+
+        [Fact]
+        public async void GetAllToDos()
+        {
+            var getAll = await _toDoService.GetAllAsync();
+            Assert.Equal(true, getAll.IsSuccess);
+
         }
     }
 }
