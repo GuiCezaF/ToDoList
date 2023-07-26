@@ -42,5 +42,52 @@ namespace ToDoList.Application.Services
             var toDos = await _toDoRepository.GetToDosAsync();
             return ResultService.Ok(_mapper.Map<ICollection<ToDoDTO>>(toDos));
         }
+
+        public async Task<ResultService<ToDoDTO>> GetByIdAsync(int id)
+        {
+            var toDo = await _toDoRepository.GetByIdAsync(id);
+            if (toDo == null)
+            {
+                return ResultService.Fail<ToDoDTO>("Tarefa não encontrada");
+            }
+
+            return ResultService.Ok(_mapper.Map<ToDoDTO>(toDo));
+        }
+
+        public async Task<ResultService> DeleteAsync(int id)
+        {
+            var toDo = await _toDoRepository.GetByIdAsync(id);
+            if (toDo == null)
+            {
+                return ResultService.Fail<ToDoDTO>("Tarefa não encontrada");
+            }
+
+            await _toDoRepository.DeleteAsync(toDo);
+            return ResultService.Ok($"A tarefa {toDo.Name} de id: {id} foi deletado com sucesso");
+        }
+
+        public async Task<ResultService> UpdateAsync(ToDoDTO toDoDTO)
+        {
+            if (toDoDTO == null)
+            {
+                return ResultService.Fail("Objeto deve ser informado");
+            }
+
+            var validation = new ToDoDTOValidator().Validate(toDoDTO);
+            if (!validation.IsValid)
+            {
+                return ResultService.RequestError("Problemas de validação", validation);
+            }
+
+            var toDo = await _toDoRepository.GetByIdAsync(toDoDTO.Id);
+            if (toDo == null)
+            {
+                return ResultService.Fail<ToDoDTO>("Tarefa não encontrada");
+            }
+
+            toDo = _mapper.Map<ToDoDTO, ToDo>(toDoDTO, toDo);
+            await _toDoRepository.EditAsync(toDo);
+            return ResultService.Ok("A Tarefa foi editada com sucesso");
+        }
     }
 }
